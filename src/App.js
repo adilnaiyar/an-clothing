@@ -9,12 +9,13 @@ import Header from './components/header/header.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
+import { GlobalStyle } from './global.styles';
+
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import { setCurrentUser } from './Redux/user/user.action';
 import { selectCurrentUser } from './Redux/user/user.selector';
 
-import './App.css';
 
 class App extends React.Component {
 
@@ -46,6 +47,7 @@ class App extends React.Component {
   render(){
     return (
       <div>
+        <GlobalStyle />
         <Header/>
         <Switch>
           <Route exact path = '/' component = {HomePage} />
