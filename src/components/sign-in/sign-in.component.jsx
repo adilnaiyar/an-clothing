@@ -7,7 +7,8 @@ import {auth, signInWithGoogle} from '../../firebase/firebase.utils';
 import {
   SignInContainer,
   SignInTitle,
-  ButtonsBarContainer
+  ButtonsBarContainer,
+  SignInError
 } from './sign-in.styles';
 
 class SignIn extends React.Component {
@@ -16,7 +17,8 @@ class SignIn extends React.Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      error: ''
     };
   }
 
@@ -29,7 +31,7 @@ class SignIn extends React.Component {
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({ email: '', password: '' });
     } catch (error) {
-      console.log(error);
+      this.setState({ error });
     }
   };
 
@@ -44,7 +46,7 @@ class SignIn extends React.Component {
       <SignInContainer>
         <SignInTitle>I already have an account</SignInTitle>
         <span>Sign in with your email and password</span>
-
+        {this.state.error ? ( <SignInError> {this.state.error.message} </SignInError> ) : null}
         <form onSubmit={this.handleSubmit}>
           <FormInput
             name='email'

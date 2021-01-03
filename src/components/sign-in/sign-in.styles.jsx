@@ -18,3 +18,12 @@ export const ButtonsBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const SignInError = styled.div`
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  float: left;
+  padding: 20px 30px;
+  margin-top: 10px;
+  text-align: center;
+`

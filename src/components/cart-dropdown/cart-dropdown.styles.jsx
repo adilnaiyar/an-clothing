@@ -30,3 +30,18 @@ export const CartItemsContainer = styled.div`
   flex-direction: column;
   overflow: scroll;
 `;
+
+export const EmptyCartDropdownContainer = styled.div`
+  position: absolute;
+  width: 180px;
+  height: 60px;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  top: 90px;
+  right: 40px;
+  z-index: 5;
+  
+`;
