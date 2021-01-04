@@ -1,5 +1,6 @@
 import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import swal from 'sweetalert2';
 import axios from 'axios';
 
 const StripeCheckoutButton = ({ price }) => {
@@ -16,13 +17,13 @@ const StripeCheckoutButton = ({ price }) => {
       }
     })
       .then(response => {
-        alert('succesful payment');
+        swal.fire("Done!", "Successful Payment", "success");
+
       })
       .catch(error => {
         console.log('Payment Error: ', error);
-        alert(
-          'There was an issue with your payment! Please make sure you use the provided credit card.'
-        );
+        swal.fire("Error!", "Payment Failed", "error");
+
       });
   };
 
@@ -33,7 +34,7 @@ const StripeCheckoutButton = ({ price }) => {
       billingAddress
       shippingAddress
       image='https://svgshare.com/i/CUz.svg'
-      description={`Your total is &#8377;{price}`}
+      description={`Your total is ₹{price}`}
       amount={priceForStripe}
       panelLabel='Pay Now'
       token={onToken}

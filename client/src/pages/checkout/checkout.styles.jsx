@@ -53,3 +53,17 @@ export const WarningContainer = styled.div`
   font-size: 24px;
   color: red;
 `;
+
+export const EmptyCartContainer = styled.div`
+  width: 180px;
+  height: 60px;
+  padding: 20px;
+  margin: 80px auto;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+  right: 40px;
+  z-index: 5;
+  
+`;

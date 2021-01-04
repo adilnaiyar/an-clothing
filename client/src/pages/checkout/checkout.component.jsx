@@ -15,10 +15,12 @@ import {
   CheckoutHeaderContainer,
   HeaderBlockContainer,
   TotalContainer,
-  WarningContainer
+  WarningContainer,
+  EmptyCartContainer
 } from './checkout.styles';
 
 const CheckoutPage = ({ cartItems, total }) => (
+cartItems.length ? (
   <CheckoutPageContainer>
     <CheckoutHeaderContainer>
       <HeaderBlockContainer>
@@ -48,6 +50,9 @@ const CheckoutPage = ({ cartItems, total }) => (
     </WarningContainer>
     { total > 0 ? (<StripeCheckoutButton price={total} />) : null }
   </CheckoutPageContainer>
+  ):( 
+    <EmptyCartContainer>No Item In The Cart </EmptyCartContainer>
+  )
 );
 
 const mapStateToProps = createStructuredSelector({
