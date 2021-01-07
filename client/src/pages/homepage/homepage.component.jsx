@@ -6,7 +6,6 @@ const HomePage =() =>(
     <HomePageContainer>        
         <Directory />
     </HomePageContainer>
-   
 )
 
 export default HomePage;
